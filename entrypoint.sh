@@ -18,8 +18,8 @@ if [ -z "$JIRA_AUTH_EMAIL" ]; then
 fi
 
 if [ -z "$JIRA_WORKITEM_KEY" ]; then
-  echo "JIRA_WORKITEM_KEY is not set, using default ZZM-3610"
-  JIRA_WORKITEM_KEY="ZZM-3610"
+  echo "JIRA_WORKITEM_KEY is not set"
+  exit 1
 fi
 
 echo "Starting ACLI..."

@@ -20,7 +20,7 @@
   uses: GuilhermeCarra/github-actions-jira-workitem-searcher
   with:
     JIRA_API_TOKEN: ${{ secrets.JIRA_API_TOKEN }}
-    JIRA_BASE_URL: 'https://your-instance.atlassian.net'
+    JIRA_BASE_URL: 'your-instance.atlassian.net'
     JIRA_AUTH_EMAIL: ${{ secrets.JIRA_AUTH_EMAIL }}
     JIRA_WORKITEM_KEY: 'ZZM-3610'
 - name: Use the results

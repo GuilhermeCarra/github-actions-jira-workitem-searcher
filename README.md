@@ -11,6 +11,7 @@
 | `JIRA_API_TOKEN` | The Jira Token | **TRUE** | **SECRET** |
 | `JIRA_BASE_URL` | Site of the Atlassian instance is required for authentication | **TRUE** | String |
 | `JIRA_AUTH_EMAIL` | User email is required for authentication | **TRUE** | String |
+| `JIRA_WORKITEM_KEY` | Work item to search | **TRUE** | String |
 
 # Usage (in a workflow):
 

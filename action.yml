@@ -1,0 +1,35 @@
+name: 'JIRA Workitem Searcher'
+description: 'A Docker GitHub Action that runs Atlassian CLI (ACLI) to search workitems (issues/jira tickets) and returns the results'
+author: 'GuilhermeCarra'
+branding:
+  icon: 'search'
+  color: 'blue'
+
+inputs:
+  JIRA_API_TOKEN:
+    description: 'The Jira API Token'
+    required: true
+  JIRA_BASE_URL:
+    description: 'Site of the Atlassian instance (e.g., your-instance.atlassian.net)'
+    required: true
+  JIRA_AUTH_EMAIL:
+    description: 'User email for authentication'
+    required: true
+  JIRA_WORKITEM_KEY:
+    description: 'The JIRA workitem key to search for (e.g., ZZM-3610)'
+    required: true
+
+outputs:
+  results:
+    description: 'The ACLI search results'
+
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  env:
+    JIRA_API_TOKEN: ${{ inputs.JIRA_API_TOKEN }}
+    JIRA_BASE_URL: ${{ inputs.JIRA_BASE_URL }}
+    JIRA_AUTH_EMAIL: ${{ inputs.JIRA_AUTH_EMAIL }}
+    JIRA_WORKITEM_KEY: ${{ inputs.JIRA_WORKITEM_KEY }}
+
+

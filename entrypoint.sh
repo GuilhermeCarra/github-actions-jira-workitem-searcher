@@ -34,8 +34,8 @@ echo $JIRA_API_TOKEN | acli jira auth login --site $JIRA_BASE_URL --email $JIRA_
   exit 1
 }
 
-RESULTS=$(acli jira workitem view $JIRA_WORKITEM_KEY) || {
-  echo "Failed to search work items with ACLI"
+RESULTS=$(acli jira workitem view $JIRA_WORKITEM_KEY -f '*all') || {
+  echo "Failed to view work item with ACLI"
   exit 1
 }
 

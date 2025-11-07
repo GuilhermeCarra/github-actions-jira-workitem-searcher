@@ -31,5 +31,3 @@ runs:
     JIRA_BASE_URL: ${{ inputs.JIRA_BASE_URL }}
     JIRA_AUTH_EMAIL: ${{ inputs.JIRA_AUTH_EMAIL }}
     JIRA_WORKITEM_KEY: ${{ inputs.JIRA_WORKITEM_KEY }}
-
-

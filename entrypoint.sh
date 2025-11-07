@@ -43,7 +43,16 @@ RESULTS=$(acli jira workitem view $JIRA_WORKITEM_KEY -f '*all' --json) || {
 echo "ACLI results:"
 echo "${RESULTS}"
 
-# Set the output for GitHub Actions
-echo "results<<EOF" >> $GITHUB_OUTPUT
-echo "${RESULTS}" >> $GITHUB_OUTPUT
-echo "EOF" >> $GITHUB_OUTPUT
+# Ensure we have results to output
+if [ -n "${RESULTS}" ]; then
+  echo "Setting GitHub Actions output..."
+  # Set the output for GitHub Actions using a more unique delimiter
+  DELIMITER="ACLI_RESULTS_$(date +%s)_END"
+  echo "results<<${DELIMITER}" >> $GITHUB_OUTPUT
+  echo "${RESULTS}" >> $GITHUB_OUTPUT
+  echo "${DELIMITER}" >> $GITHUB_OUTPUT
+  echo "Output set successfully."
+else
+  echo "Warning: No results to output"
+  echo "results=" >> $GITHUB_OUTPUT
+fi
